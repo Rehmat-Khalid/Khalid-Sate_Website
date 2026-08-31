@@ -1,24 +1,53 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Projects } from "@/components/site/Projects";
+import { Listings } from "@/components/site/Listings";
+import { Expertise } from "@/components/site/Expertise";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
+import { CartDrawer } from "@/components/site/CartDrawer";
+import { CartProvider } from "@/components/site/cart";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Khalid Estate — Property for Rent & Sale in Karachi" },
+      {
+        name: "description",
+        content:
+          "Khalid Estate, Karachi: 35+ years of trusted service for renting, buying and selling homes, apartments, shops and plots. Call 0305-2028013.",
+      },
+      { property: "og:title", content: "Khalid Estate — Karachi Property Experts" },
+      {
+        property: "og:description",
+        content:
+          "Homes, apartments, shops and plots for rent and sale across Karachi. Verified papers, fair commission, 45+ years combined experience.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <CartProvider>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Listings />
+          <Expertise />
+          <Contact />
+        </main>
+        <Footer />
+        <CartDrawer />
+      </div>
+    </CartProvider>
   );
 }
