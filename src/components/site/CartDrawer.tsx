@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Trash2, X } from "lucide-react";
 import { useCart } from "./cart";
-import { BUSINESS } from "@/lib/site-data";
+import { BUSINESS, waLink } from "@/lib/site-data";
 
 export function CartDrawer() {
   const { items, open, setOpen, remove, clear } = useCart();
@@ -10,11 +10,7 @@ export function CartDrawer() {
     const text =
       "Assalam o Alaikum, I am interested in these properties:\n" +
       items.map((i, n) => `${n + 1}. ${i.title} — ${i.area} (${i.price})`).join("\n");
-    window.open(
-      `https://wa.me/92${BUSINESS.brother.phone.slice(1)}?text=${encodeURIComponent(text)}`,
-      "_blank",
-      "noopener",
-    );
+    window.open(waLink(BUSINESS.brother.phone, text), "_blank", "noopener");
   };
 
   return (

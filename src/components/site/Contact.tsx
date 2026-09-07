@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { Check, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { BUSINESS } from "@/lib/site-data";
+import { BUSINESS, waLink } from "@/lib/site-data";
 import { useCart } from "./cart";
 
 export function Contact() {
@@ -21,11 +21,7 @@ export function Contact() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(
-      `https://wa.me/92${BUSINESS.brother.phone.slice(1)}?text=${encodeURIComponent(text)}`,
-      "_blank",
-      "noopener",
-    );
+    window.open(waLink(BUSINESS.brother.phone, text), "_blank", "noopener");
     setSent(true);
   };
 
@@ -66,13 +62,16 @@ export function Contact() {
                     <Phone className="h-3.5 w-3.5" /> {p.phone}
                   </a>
                   <a
-                    href={`https://wa.me/92${p.phone.slice(1)}`}
+                    href={waLink(
+                      p.phone,
+                      `Assalam o Alaikum ${p.name}, mujhe Khalid Estate se property ke baare mein baat karni hai.`,
+                    )}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`WhatsApp ${p.name}`}
-                    className="grid h-9 w-9 place-items-center rounded-xl border border-border bg-secondary hover:bg-muted"
+                    className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary px-3 py-2 text-xs font-semibold text-accent transition-transform hover:scale-[1.04] hover:bg-muted"
                   >
-                    <MessageCircle className="h-4 w-4 text-accent" />
+                    <MessageCircle className="h-4 w-4" /> WhatsApp
                   </a>
                 </div>
               </div>

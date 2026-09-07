@@ -9,6 +9,8 @@ import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { CartDrawer } from "@/components/site/CartDrawer";
 import { CartProvider } from "@/components/site/cart";
+import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { BUSINESS } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,6 +29,34 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "keywords",
+        content:
+          "Khalid Estate, property for rent Karachi, house for sale Karachi, Mehmoodabad estate agent, flats apartments shops plots Karachi",
+      },
+      { name: "robots", content: "index, follow" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "RealEstateAgent",
+          name: BUSINESS.name,
+          description:
+            "Karachi real estate agency for renting, buying and selling homes, apartments, shops and plots.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "Shop No. 6, Halal Book Wali Building, Main Mehmoodabad Gate",
+            addressLocality: "Karachi",
+            addressCountry: "PK",
+          },
+          telephone: [BUSINESS.father.phone, BUSINESS.brother.phone],
+          areaServed: "Karachi",
+          founder: { "@type": "Person", name: BUSINESS.father.name },
+        }),
+      },
     ],
   }),
   component: Index,
@@ -47,6 +77,7 @@ function Index() {
         </main>
         <Footer />
         <CartDrawer />
+        <WhatsAppFab />
       </div>
     </CartProvider>
   );
