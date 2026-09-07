@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Bath, BedDouble, MapPin, Maximize, Plus } from "lucide-react";
-import { LISTINGS } from "@/lib/site-data";
+import { Bath, BedDouble, MapPin, Maximize, MessageCircle, Plus } from "lucide-react";
+import { BUSINESS, LISTINGS, waLink } from "@/lib/site-data";
 import { useCart } from "./cart";
 
 const FILTERS = ["All", "For Rent", "For Sale"] as const;
@@ -50,7 +50,7 @@ export function Listings() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.05 }}
-              className={`surface-card group relative flex flex-col overflow-hidden rounded-3xl transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-glow)] ${l.span ?? ""}`}
+              className={`surface-card hover-lift sheen group relative flex flex-col overflow-hidden rounded-3xl ${l.span ?? ""}`}
             >
               <div className="relative flex-1 overflow-hidden">
                 <img
@@ -89,15 +89,29 @@ export function Listings() {
                   </span>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between gap-3">
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
                   <p className="text-sm font-extrabold text-gold">{l.price}</p>
-                  <button
-                    onClick={() => add(l)}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-secondary px-3 py-2 text-[11px] font-semibold text-foreground transition-colors hover:bg-muted"
-                  >
-                    <Plus className="h-3.5 w-3.5" />
-                    {inCart ? "Shortlisted" : "Add to Cart"}
-                  </button>
+                  <div className="flex gap-2">
+                    <a
+                      href={waLink(
+                        BUSINESS.brother.phone,
+                        `Assalam o Alaikum, mujhe is property mein interest hai:\n${l.title} — ${l.area} (${l.price})`,
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`WhatsApp about ${l.title}`}
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-secondary px-3 py-2 text-[11px] font-semibold text-accent transition-transform hover:scale-[1.04] hover:bg-muted"
+                    >
+                      <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
+                    </a>
+                    <button
+                      onClick={() => add(l)}
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-secondary px-3 py-2 text-[11px] font-semibold text-foreground transition-colors hover:bg-muted"
+                    >
+                      <Plus className="h-3.5 w-3.5" />
+                      {inCart ? "Shortlisted" : "Add to Cart"}
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.article>
