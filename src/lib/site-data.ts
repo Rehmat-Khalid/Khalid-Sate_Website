@@ -19,10 +19,17 @@ export const BUSINESS = {
   brother: {
     name: "Muhammad Noman Farooqi Qureshi",
     role: "Director — Sales, Rentals & Client Relations",
-    phone: "03353213384",
+    phone: "03127739668",
     experience: "10+ Years",
   },
 };
+
+/** Converts a local Pakistani number (03xxxxxxxxx) into a wa.me chat link. */
+export function waLink(phone: string, text?: string) {
+  const intl = `92${phone.replace(/\D/g, "").replace(/^0/, "")}`;
+  const base = `https://wa.me/${intl}`;
+  return text ? `${base}?text=${encodeURIComponent(text)}` : base;
+}
 
 export type Listing = {
   id: string;
