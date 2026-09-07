@@ -10,6 +10,7 @@ import { Footer } from "@/components/site/Footer";
 import { CartDrawer } from "@/components/site/CartDrawer";
 import { CartProvider } from "@/components/site/cart";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { BUSINESS } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
