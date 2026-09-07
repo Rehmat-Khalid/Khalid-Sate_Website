@@ -2,4 +2,4 @@
 - [x] Remove repeated property imagery across sections
 - [x] Improve section sequence and visual transitions
 - [x] Refine color correction and premium contrast
-- [ ] Verify desktop and mobile presentation
+- [x] Verify desktop and mobile presentation
