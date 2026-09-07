@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { Check, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { BUSINESS } from "@/lib/site-data";
+import { BUSINESS, waLink } from "@/lib/site-data";
 import { useCart } from "./cart";
 
 export function Contact() {
@@ -21,11 +21,7 @@ export function Contact() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(
-      `https://wa.me/92${BUSINESS.brother.phone.slice(1)}?text=${encodeURIComponent(text)}`,
-      "_blank",
-      "noopener",
-    );
+    window.open(waLink(BUSINESS.brother.phone, text), "_blank", "noopener");
     setSent(true);
   };
 
