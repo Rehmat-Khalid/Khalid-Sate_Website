@@ -19,6 +19,9 @@ export function Footer() {
           </p>
         </div>
       </div>
+      <p className="mt-8 text-center text-[11px] tracking-wide text-muted-foreground/70">
+        Created website by The RK Expert
+      </p>
     </footer>
   );
 }

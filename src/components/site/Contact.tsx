@@ -62,13 +62,16 @@ export function Contact() {
                     <Phone className="h-3.5 w-3.5" /> {p.phone}
                   </a>
                   <a
-                    href={`https://wa.me/92${p.phone.slice(1)}`}
+                    href={waLink(
+                      p.phone,
+                      `Assalam o Alaikum ${p.name}, mujhe Khalid Estate se property ke baare mein baat karni hai.`,
+                    )}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`WhatsApp ${p.name}`}
-                    className="grid h-9 w-9 place-items-center rounded-xl border border-border bg-secondary hover:bg-muted"
+                    className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary px-3 py-2 text-xs font-semibold text-accent transition-transform hover:scale-[1.04] hover:bg-muted"
                   >
-                    <MessageCircle className="h-4 w-4 text-accent" />
+                    <MessageCircle className="h-4 w-4" /> WhatsApp
                   </a>
                 </div>
               </div>
