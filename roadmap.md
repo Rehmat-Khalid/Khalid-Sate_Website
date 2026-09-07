@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Remove repeated property imagery across sections
-- [ ] Improve section sequence and visual transitions
-- [ ] Refine color correction and premium contrast
+- [x] Remove repeated property imagery across sections
+- [x] Improve section sequence and visual transitions
+- [x] Refine color correction and premium contrast
 - [ ] Verify desktop and mobile presentation

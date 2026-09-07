@@ -153,9 +153,9 @@ export function Hero() {
         >
           {[
             ["35+", "Years Experience"],
-            ["2,500+", "Deals Closed"],
-            ["100%", "Verified Papers"],
-            ["24/7", "Client Support"],
+            ["10+", "Second Generation"],
+            ["45+", "Years Combined"],
+            ["Karachi", "Local Expertise"],
           ].map(([v, k]) => (
             <div key={k} className="surface-card rounded-2xl px-4 py-3">
               <p className="text-2xl font-bold text-silver">{v}</p>

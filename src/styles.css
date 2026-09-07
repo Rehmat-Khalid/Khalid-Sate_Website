@@ -66,9 +66,9 @@
 
 :root {
   --radius: 0.875rem;
-  --background: oklch(0.13 0.004 285);
-  --foreground: oklch(0.96 0.002 285);
-  --card: oklch(0.17 0.004 285);
+  --background: oklch(0.115 0.006 255);
+  --foreground: oklch(0.965 0.004 255);
+  --card: oklch(0.165 0.008 255);
   --card-foreground: oklch(0.96 0.002 285);
   --popover: oklch(0.17 0.004 285);
   --popover-foreground: oklch(0.96 0.002 285);
@@ -77,19 +77,19 @@
   --secondary: oklch(0.22 0.004 285);
   --secondary-foreground: oklch(0.96 0.002 285);
   --muted: oklch(0.22 0.004 285);
-  --muted-foreground: oklch(0.66 0.005 285);
-  --accent: oklch(0.78 0.09 85);
+  --muted-foreground: oklch(0.72 0.012 255);
+  --accent: oklch(0.8 0.095 83);
   --accent-foreground: oklch(0.14 0.004 285);
   --destructive: oklch(0.6 0.21 27);
   --destructive-foreground: oklch(0.98 0.003 285);
-  --border: oklch(0.28 0.004 285);
-  --input: oklch(0.28 0.004 285);
+  --border: oklch(0.3 0.012 255);
+  --input: oklch(0.3 0.012 255);
   --ring: oklch(0.78 0.09 85);
-  --silver: oklch(0.86 0.004 285);
-  --gradient-silver: linear-gradient(135deg, oklch(0.98 0.002 285), oklch(0.72 0.006 285) 45%, oklch(0.92 0.003 285));
+  --silver: oklch(0.9 0.008 255);
+  --gradient-silver: linear-gradient(135deg, oklch(0.99 0.003 255), oklch(0.76 0.016 255) 45%, oklch(0.94 0.006 255));
   --gradient-gold: linear-gradient(120deg, oklch(0.88 0.09 88), oklch(0.72 0.12 72));
-  --shadow-soft: 0 1px 0 0 oklch(1 0 0 / 6%) inset, 0 18px 50px -20px oklch(0 0 0 / 70%);
-  --shadow-glow: 0 0 0 1px oklch(1 0 0 / 8%), 0 30px 80px -30px oklch(0.78 0.09 85 / 35%);
+  --shadow-soft: 0 1px 0 0 oklch(1 0 0 / 7%) inset, 0 20px 60px -24px oklch(0 0 0 / 82%);
+  --shadow-glow: 0 0 0 1px oklch(1 0 0 / 10%), 0 28px 70px -30px oklch(0.8 0.095 83 / 28%);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -154,6 +154,7 @@
     color: var(--color-foreground);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    background-image: linear-gradient(180deg, oklch(0.14 0.01 255), var(--background) 18rem);
   }
 
   h1,

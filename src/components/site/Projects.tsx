@@ -1,7 +1,5 @@
 import { motion } from "motion/react";
 import { Building2, Home, KeyRound, LandPlot, Store, Users } from "lucide-react";
-import villa from "@/assets/villa.jpg.asset.json";
-import apartment from "@/assets/apartment.jpg.asset.json";
 
 const CELLS = [
   {
@@ -56,7 +54,7 @@ export function Projects() {
         </p>
       </div>
 
-      <div className="mt-12 grid auto-rows-[minmax(150px,auto)] grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="mt-12 grid auto-rows-[minmax(170px,auto)] grid-cols-1 gap-4 sm:grid-cols-3">
         {CELLS.map(({ title, body, icon: Icon, className }, i) => (
           <motion.article
             key={title}
@@ -75,38 +73,6 @@ export function Projects() {
           </motion.article>
         ))}
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="surface-card relative col-span-1 overflow-hidden rounded-3xl sm:col-span-2 sm:row-span-2"
-        >
-          <img
-            src={villa.url}
-            alt="Luxury villa handled by Khalid Estate"
-            loading="lazy"
-            width={1024}
-            height={768}
-            className="h-full min-h-64 w-full object-cover transition-transform duration-700 hover:scale-105"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="surface-card overflow-hidden rounded-3xl"
-        >
-          <img
-            src={apartment.url}
-            alt="Apartment towers in Karachi"
-            loading="lazy"
-            width={1024}
-            height={768}
-            className="h-full min-h-48 w-full object-cover transition-transform duration-700 hover:scale-105"
-          />
-        </motion.div>
       </div>
     </section>
   );

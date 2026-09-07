@@ -40,8 +40,8 @@ function Index() {
         <main>
           <Hero />
           <About />
-          <Projects />
           <Listings />
+          <Projects />
           <Expertise />
           <Contact />
         </main>
